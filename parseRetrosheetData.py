@@ -38,7 +38,8 @@ def parsePlayerGameLogs():
         df = pd.read_csv(fileName)
         #print(df)
         main = pd.concat([main, df], ignore_index=True)
-    
+    main.to_csv('data/playerGameLogs.csv')
+
     print(main)
 
 def main():
