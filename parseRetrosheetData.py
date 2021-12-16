@@ -39,12 +39,91 @@ def parsePlayerGameLogs():
         #print(df)
         main = pd.concat([main, df], ignore_index=True)
     main.to_csv('data/playerGameLogs.csv')
-
+    
     print(main)
+    del main
 
+def parseTeamGameLogs():
+    '''
+    help
+    '''
+    l = 'raw_data/retrosplit/team_gamelog/'
+    f = os.listdir(l)
+    numF = len(f)
+    main = pd.DataFrame()
+    for i in range(0,numF):
+        print(f'{i}/{numF}: {f[i]}')
+        fileName = l + f[i]
+        df = pd.read_csv(fileName)
+        #print(df)
+        main = pd.concat([main, df], ignore_index=True)
+    main.to_csv('data/teamGameLogs.csv')
+    
+    print(main)
+    del main
+
+def parseBattingByPosition():
+    '''
+    help
+    '''
+    l = 'raw_data/retrosplit/batting_by_position/'
+    f = os.listdir(l)
+    numF = len(f)
+    main = pd.DataFrame()
+    for i in range(0,numF):
+        print(f'{i}/{numF}: {f[i]}')
+        fileName = l + f[i]
+        df = pd.read_csv(fileName)
+        #print(df)
+        main = pd.concat([main, df], ignore_index=True)
+    main.to_csv('data/battingByPosition.csv')
+    
+    print(main)
+    del main
+
+def parseBattingByRunners():
+    '''
+    help
+    '''
+    l = 'raw_data/retrosplit/batting_by_runners/'
+    f = os.listdir(l)
+    numF = len(f)
+    main = pd.DataFrame()
+    for i in range(0,numF):
+        print(f'{i}/{numF}: {f[i]}')
+        fileName = l + f[i]
+        df = pd.read_csv(fileName)
+        #print(df)
+        main = pd.concat([main, df], ignore_index=True)
+    main.to_csv('data/battingByPosition.csv')
+    
+    print(main)
+    del main
+
+def parseBattingByRunners():
+    '''
+    help
+    '''
+    l = 'raw_data/retrosplit/batting_by_runners/'
+    f = os.listdir(l)
+    numF = len(f)
+    main = pd.DataFrame()
+    for i in range(0,numF):
+        print(f'{i}/{numF}: {f[i]}')
+        fileName = l + f[i]
+        df = pd.read_csv(fileName)
+        #print(df)
+        main = pd.concat([main, df], ignore_index=True)
+    main.to_csv('data/battingByPosition.csv')
+    
+    print(main)
+    del main
 def main():
     print('Starting up!')
     parsePlayerGameLogs()
+    parseTeamGameLogs()
+    parseBattingByPosition()
+    parseBattingByRunners()
 
 
 if __name__ == "__main__":

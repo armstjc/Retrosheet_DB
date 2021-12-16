@@ -126,7 +126,7 @@ def getRetrosplitsBattingByPosition(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-byposition-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-byposition-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_by_position/batting-byposition-{i}.csv', 'wb').write(r.content)
 
@@ -136,7 +136,7 @@ def getRetrosplitsBattingByRunners(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-byrunners-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-byrunners-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_by_runners/batting-by-runners-{i}.csv', 'wb').write(r.content)
 
@@ -146,7 +146,7 @@ def getRetrosplitsBattingByPlatoon(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-platoon-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-platoon-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_platoon/batting-platoon-{i}.csv', 'wb').write(r.content)
 
@@ -156,7 +156,7 @@ def getRetrosplitsBattingHeadToHead(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-platoon-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/headtohead-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_head_to_head/headtohead-{i}.csv', 'wb').write(r.content)
 
@@ -166,7 +166,7 @@ def getRetrosplitsPitchingByRunners(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-platoon-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/pitching-byrunners-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/pitching_by_runners/batting-by-runners-{i}.csv', 'wb').write(r.content)
 
@@ -176,7 +176,7 @@ def getRetrosplitsPitchingByPlatoon(start=1974,end=2020):
     '''
     ## Individual player game logs
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
-        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/batting-platoon-{i}.csv'
+        url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/pitching-platoon-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/pitching_platoon/pitching-platoon-{i}.csv', 'wb').write(r.content)
 
@@ -192,8 +192,8 @@ def main():
     getRetrosheetTransactionFile()
     getRetrosheetEjectionFile()
     getRetrosheetScheduleFiles()
-    getRetrosplitsGameLogs()
-    getRetrosplitsTeamGameLogs()
+    getRetrosplitsGameLogs(end=e)
+    getRetrosplitsTeamGameLogs(end=e)
 
     
     getRetrosplitsBattingByPosition(end=e)
