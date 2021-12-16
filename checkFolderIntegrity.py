@@ -86,14 +86,23 @@ def checkFolderCreation():
         os.mkdir('raw_data/retrosheet/ejections')
     except:
         pass
+    
     try:
         os.mkdir('raw_data/retrosheet/transactions')
     except:
         pass
+    
     try:
         os.mkdir('raw_data/retrosheet/schedules')
     except:
-        pass    
+        pass   
+
+    try:
+        os.mkdir('data')
+    except:
+        pass  
+
+    
 def main():
     checkFolderCreation()
 

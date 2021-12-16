@@ -1,7 +1,7 @@
 ###################################################
 ##  Author:  Joseph Armstrong                    ##
 ##  Email:   armstrongjoseph08@gmail.com         ##
-##  Purpose: Download and parse data from the    ##
+##  Purpose: Download data from the              ##
 ##           Retrosheet organization.            ##
 ###################################################
 import requests
@@ -9,29 +9,33 @@ import os
 from zipfile import ZipFile
 from tqdm import tqdm
 
-def getRetrosheetGameLogZip(start=1871,end=2020):
-    '''
-    getRetrosheetGameLogZip(end=int)
-    Gets all advalible game logs from Retrosheet,
-    starting from 1871, until the end year. 
 
-    ARGS:
-    start (int): Determines the first season you 
-    want game logs from. By default, this is 1871.
-    end (int): Determines the last season you want
-    game logs from. By defuault, this is 2020.
-    '''
-    #start=1871
+## Comented out because the method is done better by getRetrosplitsGameLogs()
+#def getRetrosheetGameLogZip(start=1871,end=2020):
+#    '''
+#    getRetrosheetGameLogZip(end=int)
+#    Gets all advalible game logs from Retrosheet,
+#    starting from 1871, until the end year. 
 
-    print('starting up')
-    url = f'https://www.retrosheet.org/gamelogs/gl{start}_{end}.zip'
-    print('Getting the game log zip file.')
-    r = requests.get(url, allow_redirects=True)
-    print('saving off the zip file')
-    open(f'raw_data/zip/gl{start}_{end}.zip', 'wb').write(r.content)
-    print('Unzipping the file to the correct directory.')
-    unzipRetrosheetZipMK1(s=start,e=end)
-    print('All Done!')
+#    ARGS:
+#    start (int): Determines the first season you 
+#    want game logs from. By default, this is 1871.
+#    end (int): Determines the last season you want
+#    game logs from. By defuault, this is 2020.
+#    '''
+#    #start=1871
+
+#    print('starting up')
+#    url = f'https://www.retrosheet.org/gamelogs/gl{start}_{end}.zip'
+#    print('Getting the game log zip file.')
+#    r = requests.get(url, allow_redirects=True)
+#    print('saving off the zip file')
+#    open(f'raw_data/zip/gl{start}_{end}.zip', 'wb').write(r.content)
+#    print('Unzipping the file to the correct directory.')
+#    unzipRetrosheetZipMK1(s=start,e=end)
+#    print('All Done!')
+
+
 
 def getRetrosheetBioFile():
     '''
@@ -180,9 +184,9 @@ def getRetrosplitsPitchingByPlatoon(start=1974,end=2020):
 
 def main():
     print('Starting up Python!')
-
+    e= 2021
     ## Game Logs
-    getRetrosheetGameLogZip()
+    # getRetrosheetGameLogZip(end=e) #Retrosplits already does this
     getRetrosheetBioFile()
     getRetrosheetParkFile()
     getRetrosheetTransactionFile()
@@ -192,12 +196,12 @@ def main():
     getRetrosplitsTeamGameLogs()
 
     
-    #getRetrosplitsBattingByPosition(start=i,end=i+1)
-    #getRetrosplitsBattingByRunners(start=i,end=i+1)
-    #getRetrosplitsBattingByPlatoon(start=i,end=i+1)
-    #getRetrosplitsBattingHeadToHead(start=i,end=i+1)
-    #getRetrosplitsPitchingByRunners(start=i,end=i+1)
-    #getRetrosplitsPitchingByPlatoon(start=i,end=i+1)
+    getRetrosplitsBattingByPosition(end=e)
+    getRetrosplitsBattingByRunners(end=e)
+    getRetrosplitsBattingByPlatoon(end=e)
+    getRetrosplitsBattingHeadToHead(end=e)
+    getRetrosplitsPitchingByRunners(end=e)
+    getRetrosplitsPitchingByPlatoon(end=e)
 
 if __name__ == "__main__":
     main()
