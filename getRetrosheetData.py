@@ -72,7 +72,7 @@ def getRetrosheetEjectionFile():
 def getRetrosheetScheduleFiles():
     '''
     '''
-    url = 'https://www.retrosheet.org/transactions/tranDB.zip'
+    url = 'http://www.retrosheet.org/schedule/schedule.zip'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/zip/schedules.zip', 'wb').write(r.content)
     with ZipFile(f'raw_data/zip/schedules.zip', 'r') as zipObj:
@@ -187,21 +187,21 @@ def main():
     e= 2021
     ## Game Logs
     # getRetrosheetGameLogZip(end=e) #Retrosplits already does this
-    getRetrosheetBioFile()
-    getRetrosheetParkFile()
-    getRetrosheetTransactionFile()
-    getRetrosheetEjectionFile()
+    #getRetrosheetBioFile()
+    #getRetrosheetParkFile()
+    #getRetrosheetTransactionFile()
+    #getRetrosheetEjectionFile()
     getRetrosheetScheduleFiles()
-    getRetrosplitsGameLogs(end=e)
-    getRetrosplitsTeamGameLogs(end=e)
+    #getRetrosplitsGameLogs(end=e)
+    #getRetrosplitsTeamGameLogs(end=e)
 
     
-    getRetrosplitsBattingByPosition(end=e)
-    getRetrosplitsBattingByRunners(end=e)
-    getRetrosplitsBattingByPlatoon(end=e)
-    getRetrosplitsBattingHeadToHead(end=e)
-    getRetrosplitsPitchingByRunners(end=e)
-    getRetrosplitsPitchingByPlatoon(end=e)
+    #getRetrosplitsBattingByPosition(end=e)
+    #getRetrosplitsBattingByRunners(end=e)
+    #getRetrosplitsBattingByPlatoon(end=e)
+    #getRetrosplitsBattingHeadToHead(end=e)
+    #getRetrosplitsPitchingByRunners(end=e)
+    #getRetrosplitsPitchingByPlatoon(end=e)
 
 if __name__ == "__main__":
     main()
