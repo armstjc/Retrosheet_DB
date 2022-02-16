@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\raw_data"
+    "\\raw_data",
+    "\\raw_data\\retrosheet\\team_gamelog",
+    "\\raw_data\\retrosplit"
   ],
-  "SelectedNode": "\\parseRetrosheetData.py",
+  "SelectedNode": "\\getStatcastData.py",
   "PreviewInSolutionExplorer": false
 }

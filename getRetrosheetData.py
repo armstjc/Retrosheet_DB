@@ -40,20 +40,27 @@ from tqdm import tqdm
 def getRetrosheetBioFile():
     '''
     '''
+    print('Getting The Bio File From Retrosheet.')
     url = 'https://www.retrosheet.org/BIOFILE.TXT'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/BIOFILE.CSV', 'wb').write(r.content)
+    print('All done!')
+    print()
 
 def getRetrosheetParkFile():
     '''
     '''
+    print('Getting the Retrosheet Park File.')
     url = 'https://raw.githubusercontent.com/chadwickbureau/retrosheet/master/misc/parkcode.txt'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/PARKFILE.CSV', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosheetTransactionFile():
     '''
     '''
+    print('Getting the Retrosheet Transaction File.')
     url = 'https://www.retrosheet.org/transactions/tranDB.zip'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/zip/transactions.zip', 'wb').write(r.content)
@@ -61,17 +68,23 @@ def getRetrosheetTransactionFile():
         print('extracting contents')
         # Extract all the contents of zip file in different directory
         zipObj.extractall('raw_data/retrosheet/transactions')
+    print('All Done!')
+    print()
 
 def getRetrosheetEjectionFile():
     '''
     '''
+    print('Getting the Retrohseet Ejection File.')
     url = 'https://www.retrosheet.org/Ejecdata.txt'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/retrosheet/ejections/ejections.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosheetScheduleFiles():
     '''
     '''
+    print('Getting the Retrosheet Schedule Files.')
     url = 'http://www.retrosheet.org/schedule/schedule.zip'
     r = requests.get(url, allow_redirects=True)
     open(f'raw_data/zip/schedules.zip', 'wb').write(r.content)
@@ -79,7 +92,8 @@ def getRetrosheetScheduleFiles():
         print('extracting contents')
         # Extract all the contents of zip file in different directory
         zipObj.extractall('raw_data/retrosheet/schedules')
-
+    print('All Done!')
+    print()
 
 def unzipRetrosheetZipMK1(s=1871,e=2020,d='raw_data/team_gamelog'):
     '''
@@ -99,87 +113,111 @@ def unzipRetrosheetZipMK1(s=1871,e=2020,d='raw_data/team_gamelog'):
         # Extract all the contents of zip file in different directory
         zipObj.extractall(d)
         print('all done')
+    print()
 
 def getRetrosplitsGameLogs(start=1901,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the RetroSplit Game Logs.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/playing-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/player_gamelog/playing-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsTeamGameLogs(start=1901,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the RetroSplit Team Game Logs.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/daybyday/teams-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/team_gamelog/teams-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsBattingByPosition(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the batting by position data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-byposition-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_by_position/batting-byposition-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsBattingByRunners(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the batting by runners data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-byrunners-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_by_runners/batting-by-runners-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsBattingByPlatoon(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the batting by platoon data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/batting-platoon-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_platoon/batting-platoon-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsBattingHeadToHead(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the head-to-head batting data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/headtohead-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/batting_head_to_head/headtohead-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsPitchingByRunners(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the pitching by runners data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/pitching-byrunners-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/pitching_by_runners/batting-by-runners-{i}.csv', 'wb').write(r.content)
+    print('All Done!')
+    print()
 
 def getRetrosplitsPitchingByPlatoon(start=1974,end=2020):
     '''
     help
     '''
     ## Individual player game logs
+    print('Getting the pitching by platoon data from Retrosplit.')
     for i in tqdm(range(start,end+1), ascii=True, bar_format='{l_bar}{bar:30}{r_bar}{bar:-30b}'):
         url = f'https://raw.githubusercontent.com/chadwickbureau/retrosplits/master/splits/pitching-platoon-{i}.csv'
         r = requests.get(url, allow_redirects=True)
         open(f'raw_data/retrosplit/pitching_platoon/pitching-platoon-{i}.csv', 'wb').write(r.content)
-
+    print('All Done!')
+    print()
 
 
 def main():
@@ -191,17 +229,17 @@ def main():
     #getRetrosheetParkFile()
     #getRetrosheetTransactionFile()
     #getRetrosheetEjectionFile()
-    getRetrosheetScheduleFiles()
-    #getRetrosplitsGameLogs(end=e)
+    #getRetrosheetScheduleFiles()
+    getRetrosplitsGameLogs(end=e)
     #getRetrosplitsTeamGameLogs(end=e)
 
     
-    #getRetrosplitsBattingByPosition(end=e)
-    #getRetrosplitsBattingByRunners(end=e)
-    #getRetrosplitsBattingByPlatoon(end=e)
-    #getRetrosplitsBattingHeadToHead(end=e)
-    #getRetrosplitsPitchingByRunners(end=e)
-    #getRetrosplitsPitchingByPlatoon(end=e)
+    getRetrosplitsBattingByPosition(end=e)
+    getRetrosplitsBattingByRunners(end=e)
+    getRetrosplitsBattingByPlatoon(end=e)
+    getRetrosplitsBattingHeadToHead(end=e)
+    getRetrosplitsPitchingByRunners(end=e)
+    getRetrosplitsPitchingByPlatoon(end=e)
 
 if __name__ == "__main__":
     main()
